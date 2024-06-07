@@ -21,11 +21,11 @@ public class ResourceController {
         // Vérifier si l'utilisateur est authentifié
         if (authentication != null && authentication.isAuthenticated()) {
         	// L'utilisateur est authentifié, on accorde l'accès à la ressource
-        	String resource = "This is a protected resource";
+        	String resource = "You are authorized to access this protected resource";
         	return ResponseEntity.ok(resource);
         } else {
         	// L'utilisateur n'est pas authentifié, on retourne une réponse d'erreur 401 (Unauthorized)
-        	return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorized");
+        	return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("If you are not authenticated, we cannot authorize you to access this resource.");
         }
 		
 	}
