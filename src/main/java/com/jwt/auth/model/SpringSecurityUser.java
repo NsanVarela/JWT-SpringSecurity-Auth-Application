@@ -1,4 +1,4 @@
-package com.jwt.user.model;
+package com.jwt.auth.model;
 
 import java.util.List;
 

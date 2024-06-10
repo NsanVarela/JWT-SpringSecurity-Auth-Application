@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,10 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jwt.user.model.SpringSecurityUser;
-//import com.jwt.mock.controller.UserDetailsManagerController;
-//import com.jwt.mock.model.UserDetailsManagerModel;
-import com.jwt.user.model.User;
+import com.jwt.auth.model.SpringSecurityUser;
 
 @RestController
 @RequestMapping("/api")
