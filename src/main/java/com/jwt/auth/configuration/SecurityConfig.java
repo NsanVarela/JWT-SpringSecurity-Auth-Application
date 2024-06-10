@@ -46,6 +46,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
             		.requestMatchers("/api/login").permitAll()
                     .requestMatchers("/api/resource").authenticated()
+                    .requestMatchers("/api/in-memory-user").authenticated()
+                    .requestMatchers("/api/in-memory-user/{username}").authenticated()
+                    .requestMatchers("/api/in-memory-users").authenticated()
                     .anyRequest().permitAll()
                 )
                 .exceptionHandling(ex -> ex
@@ -78,8 +81,18 @@ public class SecurityConfig {
 			.username("user")
 			.password(passwordEncoder().encode("password"))
 			.roles("USER")
-			.build();		
-		return new InMemoryUserDetailsManager(user);
+			.build();
+		UserDetails admin = User.builder()
+				.username("admin")
+				.password(passwordEncoder().encode("password"))
+				.roles("ADMIN")
+				.build();
+		UserDetails mediator = User.builder()
+				.username("mediator")
+				.password(passwordEncoder().encode("password"))
+				.roles("MEDIATOR")
+				.build();
+		return new InMemoryUserDetailsManager(user, admin, mediator);
 	}
 
 	@Bean
